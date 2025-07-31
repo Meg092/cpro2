@@ -10,7 +10,7 @@ class CproLandView extends GetView<CproLandLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.olson.value
+          () => controller.koch.value
               ? const CircularProgressIndicator(color: Colors.white38)
               : buildError(),
         ),
@@ -25,7 +25,7 @@ class CproLandView extends GetView<CproLandLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.etxs();
+              controller.vgdlct();
             },
             icon: const Icon(
               Icons.restart_alt,

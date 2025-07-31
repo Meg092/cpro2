@@ -24,7 +24,7 @@ class ItemSlider extends GetView<CproLandLogic> {
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.tkwviqr.value)),
+              url: WebUri.uri(Uri.parse(controller.qcegbsl.value)),
               timeoutInterval:10
             ),
             initialSettings: InAppWebViewSettings(

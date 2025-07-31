@@ -14,8 +14,8 @@ class CproSettingLogic extends GetxController {
   var autoLandscape = true.obs;
   var appVersion = '1.0.0'.obs;
   var clockFamily = 0.obs;
-  var hourTextColor = Colors.white.withOpacity(0.4).obs;
-  var minutesTextColor = Colors.white.withOpacity(0.4).obs;
+  var hourTextColor = Colors.white.withOpacity(0.8).obs;
+  var minutesTextColor = Colors.white.withOpacity(0.8).obs;
 
   void showFontFamily(BuildContext context) async {
     BottomPicker(
